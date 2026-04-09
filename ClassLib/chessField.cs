@@ -1,7 +1,7 @@
 ﻿namespace chessField;
 
 using System.Data;
-using figure;
+using Figure;
 public class ChessField
 {
 

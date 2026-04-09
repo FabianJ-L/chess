@@ -1,4 +1,4 @@
-namespace figure;
+namespace Figure;
 
 public enum PieceType
 {
@@ -17,7 +17,7 @@ public enum PlayerColor
     Black
 }
 
-public class Figure()
+public class Figure
 {
     private PlayerColor _color;
     private PieceType _figureType;
