@@ -1,11 +1,14 @@
 ﻿namespace chessField;
 
 using System.Data;
+using System.Xml;
 using Figure;
 public class ChessField
 {
 
     private Figure?[,] playFieldArray;
+
+    
 
     public ChessField()
     {
