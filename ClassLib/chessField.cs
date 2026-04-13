@@ -69,7 +69,14 @@ public class ChessField
             throw new ArgumentException("The field is null");
 
         playFieldArray[yStartPos, xStartPos] = null;
-        playFieldArray[yEndPos, xEndPos] = moveFigure;
+        if (moveFigure.IsValidMove(xStartPos, yStartPos, xEndPos, yEndPos, this))
+        {
+            playFieldArray[yEndPos, xEndPos] = moveFigure;
+        }
+        else
+        {
+            throw new ArgumentException("Invalid move");
+        }
     }
 
     public void SetUpBoard()

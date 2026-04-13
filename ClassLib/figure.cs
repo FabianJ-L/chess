@@ -1,5 +1,5 @@
 namespace Figure;
-
+using chessField;
 public enum PieceType
 {
     None,
@@ -17,7 +17,7 @@ public enum PlayerColor
     Black
 }
 
-public class Figure
+public abstract class Figure
 {
     private PlayerColor _color;
     private PieceType _figureType;
@@ -27,6 +27,8 @@ public class Figure
         this._color = color;
         this._figureType = figureType;
     }
+
+    public abstract bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field);
 
     public override string ToString()
     {
