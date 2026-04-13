@@ -13,7 +13,7 @@ public class King : Figure
 
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field)
     {
-        
+
         return true;
     }
 }

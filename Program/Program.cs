@@ -9,10 +9,6 @@ public class Progarm{
         ChessField chessField = new();
 
         Console.WriteLine(chessField.ToString());
-
-        chessField.Move("b1", "b4");
-
-        Console.WriteLine(chessField.ToString());
         
         return 0; 
     }
