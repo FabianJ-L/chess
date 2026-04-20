@@ -13,8 +13,27 @@ public class King : Figure
 
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field)
     {
+        int[,] validMoves = { { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, { 0, 1 }, { 1, -1 }, { 1, 0 }, { 1, 1 } };
 
-        return true;
+        Figure? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < validMoves.GetLength(0); i++)
+        {
+            int newX = xStart + validMoves[i, 0];
+            int newY = yStart + validMoves[i, 1];
+
+            if (newX == xEnd && newY == yEnd)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 public class Pawn : Figure

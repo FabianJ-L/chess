@@ -19,13 +19,13 @@ public enum PlayerColor
 
 public abstract class Figure
 {
-    private PlayerColor _color;
-    private PieceType _figureType;
+    public PlayerColor color { get; }
+    public PieceType figureType { get; }
 
     public Figure(PlayerColor color, PieceType figureType)
     {
-        this._color = color;
-        this._figureType = figureType;
+        this.color = color;
+        this.figureType = figureType;
     }
 
     public abstract bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field);
@@ -34,15 +34,15 @@ public abstract class Figure
     {
         string charPiece = "";
 
-        if (_figureType == PieceType.King) charPiece = "k";
-        else if (_figureType == PieceType.Queen) charPiece = "q";
-        else if (_figureType == PieceType.Pawn) charPiece = "p";
-        else if (_figureType == PieceType.Rook) charPiece = "r";
-        else if (_figureType == PieceType.Bishop) charPiece = "b";
-        else if (_figureType == PieceType.Knight) charPiece = "n";
+        if (figureType == PieceType.King) charPiece = "k";
+        else if (figureType == PieceType.Queen) charPiece = "q";
+        else if (figureType == PieceType.Pawn) charPiece = "p";
+        else if (figureType == PieceType.Rook) charPiece = "r";
+        else if (figureType == PieceType.Bishop) charPiece = "b";
+        else if (figureType == PieceType.Knight) charPiece = "n";
 
 
-        return (_color == PlayerColor.Black) ? charPiece.ToUpper() : charPiece;
+        return (color == PlayerColor.Black) ? charPiece.ToUpper() : charPiece;
     }
 
 }
