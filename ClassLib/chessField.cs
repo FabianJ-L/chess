@@ -82,7 +82,7 @@ public class ChessField
     public void SetUpBoard()
     {
         //playFieldArray[0, 0] = new Rook(PlayerColor.Black);
-        //playFieldArray[0, 1] = new Knight(PlayerColor.Black);
+        playFieldArray[0, 1] = new Knight(PlayerColor.Black);
         //playFieldArray[0, 2] = new Bishop(PlayerColor.Black);
         //playFieldArray[0, 3] = new Queen(PlayerColor.Black);
         playFieldArray[0, 4] = new King(PlayerColor.Black);
@@ -101,7 +101,7 @@ public class ChessField
         //   }
 
         //   playFieldArray[7, 0] = new Rook(PlayerColor.White);
-        //   playFieldArray[7, 1] = new Knight(PlayerColor.White);
+           playFieldArray[7, 1] = new Knight(PlayerColor.White);
         //   playFieldArray[7, 2] = new Bishop(PlayerColor.White);
         //   playFieldArray[7, 3] = new Queen(PlayerColor.White);
         playFieldArray[7, 4] = new King(PlayerColor.White);
