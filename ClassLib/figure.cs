@@ -21,11 +21,13 @@ public abstract class Figure
 {
     public PlayerColor color { get; }
     public PieceType figureType { get; }
+    public bool hasMoved { get; }
 
     public Figure(PlayerColor color, PieceType figureType)
     {
         this.color = color;
         this.figureType = figureType;
+        this.hasMoved = false; 
     }
 
     public abstract bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field);
