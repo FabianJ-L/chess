@@ -110,8 +110,6 @@ public class ChessField
         //   playFieldArray[7, 7] = new Rook(PlayerColor.White);
     }
 
-
-
     public Figure? GetFigure(int x, int y)
     {
         if (x < 0 || x >= playFieldArray.GetLength(0) || y < 0 || y >= playFieldArray.GetLength(1))
