@@ -63,14 +63,14 @@ public class ChessField
         if (xEndPos < 0 || xEndPos > 7)
             throw new ArgumentException("letter end postition isn't a valid input");
 
-        Figure? moveFigure = playFieldArray[xStartPos, yStartPos];
+        Figure? moveFigure = playFieldArray[yStartPos, xStartPos];
 
         if (moveFigure == null)
             throw new ArgumentException("The field is null");
 
-        playFieldArray[yStartPos, xStartPos] = null;
         if (moveFigure.IsValidMove(xStartPos, yStartPos, xEndPos, yEndPos, this))
         {
+            playFieldArray[yStartPos, xStartPos] = null;
             playFieldArray[yEndPos, xEndPos] = moveFigure;
         }
         else
@@ -149,4 +149,4 @@ public class ChessField
 
         return playField;
     }
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+}
