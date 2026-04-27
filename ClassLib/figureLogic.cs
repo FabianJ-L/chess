@@ -90,8 +90,34 @@ public class Bishop : Figure
     }
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field)
     {
+        int[,] validMoves = { { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 } };
 
-        return true;
+        Figure? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < validMoves.GetLength(0); i++)
+        {
+            for (int j = 1; j < 8; j++)
+            {
+                int newX = xStart + validMoves[i, 0] * j;
+                int newY = yStart + validMoves[i, 1] * j;
+
+                if (newX == xEnd && newY == yEnd)
+                {
+                    return true;
+                }
+                if (field.GetFigure(newX, newY) != null)
+                {
+                    break;
+                }
+            }
+        }
+
+        return false;
     }
 }
 
@@ -124,7 +150,8 @@ public class Rook : Figure
                 {
                     return true;
                 }
-                if (field.GetFigure(newX, newY) != null){
+                if (field.GetFigure(newX, newY) != null)
+                {
                     break;
                 }
             }
@@ -144,6 +171,33 @@ public class Queen : Figure
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field)
     {
 
-        return true;
+                int[,] validMoves = { { -1, 0 }, { 0, -1 }, { 1, 0 }, { 0, 1 }, { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 }};
+
+        Figure? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < validMoves.GetLength(0); i++)
+        {
+            for (int j = 1; j < 8; j++)
+            {
+                int newX = xStart + validMoves[i, 0] * j;
+                int newY = yStart + validMoves[i, 1] * j;
+
+                if (newX == xEnd && newY == yEnd)
+                {
+                    return true;
+                }
+                if (field.GetFigure(newX, newY) != null)
+                {
+                    break;
+                }
+            }
+        }
+
+        return false;
     }
 }
