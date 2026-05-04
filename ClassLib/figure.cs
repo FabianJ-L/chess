@@ -21,7 +21,7 @@ public abstract class Figure
 {
     public PlayerColor color { get; }
     public PieceType figureType { get; }
-    public bool hasMoved { get; }
+    public bool hasMoved { get; set; }
 
     public Figure(PlayerColor color, PieceType figureType)
     {
@@ -30,7 +30,7 @@ public abstract class Figure
         this.hasMoved = false; 
     }
 
-    public abstract bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, ChessField field);
+   public abstract bool IsValidMove(int yStart, int xStart, int yEnd, int xEnd, ChessField field);
 
     public override string ToString()
     {

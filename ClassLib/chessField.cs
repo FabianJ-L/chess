@@ -68,10 +68,11 @@ public class ChessField
         if (moveFigure == null)
             throw new ArgumentException("The field is null");
 
-        if (moveFigure.IsValidMove(xStartPos, yStartPos, xEndPos, yEndPos, this))
+        if (moveFigure.IsValidMove(yStartPos, xStartPos, yEndPos, xEndPos, this))
         {
             playFieldArray[yStartPos, xStartPos] = null;
             playFieldArray[yEndPos, xEndPos] = moveFigure;
+            moveFigure.hasMoved = true;
         }
         else
         {
@@ -90,15 +91,15 @@ public class ChessField
         playFieldArray[0, 6] = new Knight(PlayerColor.Black);
         playFieldArray[0, 7] = new Rook(PlayerColor.Black);
 
-        //   for (int x = 0; x < 8; x++)
-        //   {
-        //       playFieldArray[1, x] = new Pawn(PlayerColor.Black);
-        //   }
+        for (int x = 0; x < 8; x++)
+        {
+            playFieldArray[1, x] = new Pawn(PlayerColor.Black);
+        }
 
-        //   for (int x = 0; x < 8; x++)
-        //   {
-        //       playFieldArray[6, x] = new Pawn(PlayerColor.White);
-        //   }
+        for (int x = 0; x < 8; x++)
+        {
+            playFieldArray[6, x] = new Pawn(PlayerColor.White);
+        }
 
         playFieldArray[7, 0] = new Rook(PlayerColor.White);
         playFieldArray[7, 1] = new Knight(PlayerColor.White);
@@ -110,18 +111,18 @@ public class ChessField
         playFieldArray[7, 7] = new Rook(PlayerColor.White);
     }
 
-    public Figure? GetFigure(int x, int y)
+    public Figure? GetFigure(int y, int x)
     {
-        if (x < 0 || x >= playFieldArray.GetLength(0) || y < 0 || y >= playFieldArray.GetLength(1))
+        if (y < 0 || y >= 8 || x < 0 || x >= 8)
             return null;
 
-        return playFieldArray[x, y];
+        return playFieldArray[y, x];
     }
 
     public override string ToString()
     {
-        string Display(int x, int y) => GetFigure(x, y)?.ToString() ?? " ";
-        string DisplayHashtag(int x, int y) => GetFigure(x, y)?.ToString() ?? "#";
+        string Display(int y, int x) => GetFigure(y, x)?.ToString() ?? " ";
+        string DisplayHashtag(int y, int x) => GetFigure(y, x)?.ToString() ?? "#";
 
         string playField = $"  a  b  c  d  e  f  g  h \n +--+--+--+--+--+--+--+--+\n";
 
