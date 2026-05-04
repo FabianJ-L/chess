@@ -1,5 +1,5 @@
 namespace Figure;
-using chessField;
+
 public enum PieceType
 {
     None,
@@ -27,24 +27,22 @@ public abstract class Figure
     {
         this.color = color;
         this.figureType = figureType;
-        this.hasMoved = false; 
+        this.hasMoved = false;
     }
 
-   public abstract bool IsValidMove(int yStart, int xStart, int yEnd, int xEnd, ChessField field);
+    public abstract bool IsValidMove(int yStart, int xStart, int yEnd, int xEnd, chessField.ChessField field);
 
     public override string ToString()
     {
-        string charPiece = "";
+        string c = "";
 
-        if (figureType == PieceType.King) charPiece = "k";
-        else if (figureType == PieceType.Queen) charPiece = "q";
-        else if (figureType == PieceType.Pawn) charPiece = "p";
-        else if (figureType == PieceType.Rook) charPiece = "r";
-        else if (figureType == PieceType.Bishop) charPiece = "b";
-        else if (figureType == PieceType.Knight) charPiece = "n";
+        if (figureType == PieceType.King) c = "k";
+        else if (figureType == PieceType.Queen) c = "q";
+        else if (figureType == PieceType.Rook) c = "r";
+        else if (figureType == PieceType.Bishop) c = "b";
+        else if (figureType == PieceType.Knight) c = "n";
+        else if (figureType == PieceType.Pawn) c = "p";
 
-
-        return (color == PlayerColor.Black) ? charPiece.ToUpper() : charPiece;
+        return color == PlayerColor.Black ? c.ToUpper() : c;
     }
-
 }

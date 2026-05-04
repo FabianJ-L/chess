@@ -1,7 +1,5 @@
 ﻿namespace chessField;
 
-using System.Data;
-using System.Xml;
 using Figure;
 using FigureLogic;
 
@@ -29,7 +27,7 @@ public class ChessField
         {
             if (numberStart <= 8 && numberStart >= 1)
             {
-                yStartPos = numberStart - 1;
+                yStartPos = 8 - numberStart;
             }
             else
             {
@@ -45,7 +43,7 @@ public class ChessField
         {
             if (numberEnd <= 8 && numberEnd >= 1)
             {
-                yEndPos = numberEnd - 1;
+                yEndPos = 8 - numberEnd;
             }
             else
             {
@@ -128,7 +126,7 @@ public class ChessField
 
         for (int i = 0; i < 8; i++)
         {
-            playField += i + 1;
+            playField += (8 - i);
 
             for (int j = 0; j < 8; j++)
             {
